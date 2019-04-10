@@ -2,11 +2,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Caretaker implements  Runnable {
+public class Caretaker extends  Thread {
     private Object obj;
     private Originator ori;
     private List<MementoIF> meme = new ArrayList<>();
     private int arvo;
+    private String pelaaja;
+
+    public Caretaker(String pelaaja) {
+        this.pelaaja = pelaaja;
+    }
 
     @Override
     public void run() {
@@ -16,7 +21,7 @@ public class Caretaker implements  Runnable {
         do {
             Random rand = new Random();
              arvo = rand.nextInt(10) + 1;
-            System.out.println("Arvaan numero: " + arvo);
+            System.out.println("Pelaaja " + pelaaja + ": Arvaan numero: " + arvo);
         } while (!ori.arvaus(arvo, meme));
     }
 

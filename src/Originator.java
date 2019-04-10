@@ -11,7 +11,7 @@ public class Originator {
     }
 
     public boolean arvaus(int arvaus, List<MementoIF> meme) {
-         Memento meemu = (Memento) meme.get(0);
+        Memento meemu = (Memento) meme.get(0);
         return arvaus == meemu.getNumber();
     }
 
