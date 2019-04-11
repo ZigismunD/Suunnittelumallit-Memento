@@ -10,19 +10,19 @@ public class Originator {
         return new Memento(rand.nextInt(10) + 1);
     }
 
-    public boolean arvaus(int arvaus, List<MementoIF> meme) {
-        Memento meemu = (Memento) meme.get(0);
+    public boolean arvaus(int arvaus, Object meme) {
+        Memento meemu = (Memento) meme;
         return arvaus == meemu.getNumber();
     }
 
-    private class Memento implements MementoIF {
+    private class Memento  {
         private int number;
 
-        public Memento(int number) {
+        private Memento(int number) {
             this.number = number;
         }
 
-        public int getNumber() {
+        private int getNumber() {
             return this.number;
         }
     }
