@@ -5,7 +5,7 @@ public class Caretaker extends  Thread {
     private Originator ori;
     private int arvo;
     private String pelaaja;
-    Random rand;
+    private Random rand;
 
     public Caretaker(String pelaaja) {
         this.pelaaja = pelaaja;
@@ -13,7 +13,7 @@ public class Caretaker extends  Thread {
 
     @Override
     public void run() {
-        ori = new Originator();
+        ori = Originator.getInstance();
         obj = ori.liityPeliin();
         rand = new Random();
         do {

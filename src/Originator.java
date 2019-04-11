@@ -4,6 +4,18 @@ import java.util.Random;
 
 public class Originator {
     private Random rand;
+    private static Originator INSTANCE = null;
+
+    private Originator() {
+
+    }
+
+    public static synchronized Originator getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new Originator();
+        }
+        return INSTANCE;
+    }
 
     public Memento liityPeliin() {
         rand = new Random();
